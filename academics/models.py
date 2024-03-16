@@ -26,3 +26,13 @@ class Country(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
     deleted_at = models.DateTimeField(null=True, blank=True)
+
+
+class Department(models.Model):
+    name = models.CharField(max_length=100)
+    abrev = models.CharField(max_length=10)
+    descrip = models.CharField(max_length=10)
+    id_country = models.ForeignKey(Country, on_delete=models.CASCADE)
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
+    deleted_at = models.DateTimeField(null=True, blank=True)
