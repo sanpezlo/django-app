@@ -46,3 +46,18 @@ class City(models.Model):
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
     deleted_at = models.DateTimeField(null=True, blank=True)
+
+
+class Person(models.Model):
+    first_name = models.CharField(max_length=50)
+    last_name = models.CharField(max_length=50)
+    id_ident_type = models.ForeignKey(
+        IdentificationType, on_delete=models.CASCADE)
+    ident_number = models.CharField(max_length=15)
+    id_exp_city = models.ForeignKey(City, on_delete=models.CASCADE)
+    address = models.CharField(max_length=150)
+    mobile = models.CharField(max_length=50)
+    id_user = models.ForeignKey(User, on_delete=models.CASCADE)
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
+    deleted_at = models.DateTimeField(null=True, blank=True)
